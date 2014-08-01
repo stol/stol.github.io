@@ -1,29 +1,29 @@
 ---
 layout: post
-title: Comment organiser les fichiers Sass d'un site web ?
+title: Comment organiser le projet Sass/Compass d'un site web moderne ?
 ---
 
 ### Préambule
 
-Lorsqu'on fait l'intégration d'un site web, des problèmatiques apparaissent au fil du temps.
+Lorsqu'on fait l'intégration d'un site web, rien ne reste simpletrès longtemps.
 
-Au début c'est facile, on attaque une première page, avec éventuellement d'autres pages similaires en tête. On met tout dans un seul fichier, on compile, on ajoute des règles et peu à peu les lignes s'additionnent. En utilisant les possibilités offertes par Sass, on comment à créer quelques mixins, quelques variables, quelques héritages. On met de plus en plus de temps à trouver où se trouve les règle de tel ou tel élément.
+Au début c'est facile. On attaque une première page en gardant éventuellement à l'esprit les autres pages similaires. On met tout dans un seul fichier, on compile, on ajoute des règles. Peu à peu les lignes s'additionnent. En utilisant les possibilités offertes par Sass, on comment créé quelques mixins, quelques variables, quelques héritages. Puis on met de plus en plus de temps à trouver où se trouve le code de tel ou tel élément.
 
-Et pour peu qu'on soit plusieurs à travailler sur le fichier, on se télescope, surtout si on n'utilise pas de méthode et qu'on a pas de versionning.
+Et pour peu qu'on soit plusieurs sur le même fichier, on se télescope, surtout si on n'utilise pas de méthode et qu'on a pas de versionning.
 
 Assez rapidement on externalise quelques infos : ``_variables.scss`` ou ``_mixins.scss``. Puis d'autres, tels que ``_colors.scss``, ``_layout.scss``, ``_menu`` ou que sais-je encore.
 
-Et un beau jour, alors que le site n'est peut-être même pas encore sorti, c'est le bordel. Les fichiers sont interdépendants, ils ont tous besoin les uns des autres. Des règles en écrasent d'autres, des effets de bord arrivent en pagaille, et on fini par ajouter en fin de fichier des sélecteurs complexes écrasant un sélecteur précédent, car le précédent sélecteur est utilisé à plusieurs endroits du site.
+Et un beau jour, alors que le site n'est peut-être même pas encore sorti, c'est le bordel. Les fichiers sont interdépendants, ils ont tous besoin les uns des autres. Des règles en écrasent d'autres, des effets de bord arrivent en pagaille, et on fini par ajouter à la fin du fichier principal des règles complexes écrasant des sélecteurs précédents.
 
-Et je ne vous parle pas de devoir exporter toute ou partie du site dans des widgets externes, ou encore de devoir mettre certains blocs/pages/parties du site en marque blanche, ou de la gestion du responsive.
+Et je ne vous parle pas de devoir exporter toute ou partie du site dans des widgets externes, ou de devoir mettre certains blocs/pages/parties du site en marque blanche, ou de la gestion du responsive.
 
 Oui c'est de l'expérience vécue, et je ne pense pas être le seul.
 
 Pour ne plus jamais reproduire cette façon de fonctionner, 3 choses m'ont permis de passer outre :
 
-- Une methodologie robuste (BEM en l'occurence, mais ça fera l'objet d'un post ultérieur)
 - Une organisation de fichier efficace
-- L'utilisation des fonctionnalités avancées (notamment l'héritage) de Sass et de certain plugins.
+- Une methodologie robuste (BEM en l'occurence, mais ça fera l'objet d'un post ultérieur)
+- L'utilisation des fonctionnalités avancées (notamment l'héritage) de Sass et de certain plugins. (ça aussi :p )
 
 
 ### Guide
@@ -46,7 +46,7 @@ Puis passons à la structure des fichiers elle-même.
 
 #### Structure des fichiers
 
-Je travaille habituellement avec la hierarchie suivante :
+Je travaille habituellement avec la hiérarchie suivante :
 
 ```
 .
@@ -62,9 +62,9 @@ Je travaille habituellement avec la hierarchie suivante :
 |   + _module-n.html
 ```
 
-``_charte.scss`` contient le look & feel du site : les différents types de textes (couleurs, tailles), les couleurs, let boutons. Mais attention, ce fichier ne contient **aucun** code CSS. Uniquement des mixins (@mixin) et des classes (%ma-classe). Donc si on incluant ce fichier sans utiliser une seule classe ou mixin, aucun code css ne serait généré. Je reviendrai sur l'utilisation de ce fichier un peu plus tard.
+``_charte.scss`` contient le look & feel du site : les différents types de textes (couleurs, tailles), les couleurs, les boutons. Mais attention ce fichier ne contient **aucun** code CSS. Uniquement des mixins (@mixin) et des classes (%ma-classe). Donc si on incluait ce fichier sans utiliser une seule classe ou mixin, aucun code css ne serait généré. Ce fichier devrait faire l'object d'un post ultérieur.
 
-``_icons.scss`` contient la gestion des icônes du site. J'utilise avec des sprites SVG. Il contient des infos du type :
+``_icons.scss`` contient la gestion des icônes du site. J'utilise avec des sprites SVG (post ultérieur :)). Il contient des infos du type :
 
 ```
 .mon-icone{
@@ -94,15 +94,16 @@ Je travaille habituellement avec la hierarchie suivante :
 
 ```
 
-Enfin, ``modules/_un-module.scss``. Ces fichiers sont intéressants à plus d'un titre. Chaque fichier contient soit :
+Enfin, les ``modules/``. Ces fichiers sont intéressants à plus d'un titre. Je reprends ce terme de module par extention de la méthodologie BEM.
+
+Chaque fichier contient soit :
 
 * Les règles CSS d'un composant front complexe. Ex : la barre de menu
-* Les règle CSS d'un type de données du site. Ex : sur un site de cuisine, tout ce qui concerne l'affichage des recettes
+* Les règles CSS d'un type de données. Ex : sur un site de cuisine, tout ce qui concerne l'affichage des recettes
 
 Ma règle est généralement de ne créer un fichier par composant que lorsque ce composant devient trop complexe.
 
 Les modules sont des modules BEM, mais ça fera l'objet d'un post ulterieur.
-
 
 #### Création d'un module
 
@@ -153,17 +154,23 @@ Pour utiliser le module sur le site, il suffit de l'importer dans ``app.scss``.
 
 Etant donné que plusieurs modules peuvent avoir les même dépendances, l'utilisation du plugin "Import Once" est indispensable. Sans lui, chaque ``@import`` provoquerait l'import du fichier correspondant et ça ne marcherait pas.
 
-Ainsi, nous retrouvons ici un concept similaire à l'injection de dépendances utilisé dans d'autre outils.
+Nous retrouvons ici un concept similaire à l'injection de dépendances utilisé dans d'autre domaines.
 
 Mais ça permet aussi de pouvoir facilement exporter ce module dans un autre fichier, sans générer de code CSS supplémentaire.
 
 Ex : nous pourrions avoir besoin de d'afficher notre bloc "mon-module" sur un site tierce, dans une iframe. Il serait possible d'appeler la feuille de style principale, mais à quel prix ? Ici, il est possible de faire :
 
 ```
-// export du code CSS de "mon-module : export-mon-module.scss
+// export-mon-module.scss
 
 @import "modules/_mon-module.scss";
 
 ```
 
 Le code généré ne comportera **que** le code CSS correspondant au module. Il ne comportera ni les règles globales, ni le grid systeme, ni plein de trucs inutiles.
+
+### Conclusion
+
+Ce système d'organisation est le meilleur que j'ai utilisé jusqu'à présent. Il réponds à tous mes besoins en restant simple tout en offrant suffisamment d'abstraction pour garder le code organisé et propre.
+
+J'ai toutefois quelques améliorations en tête si d'aventure j'en avais besoin un jour.
