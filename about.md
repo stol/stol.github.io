@@ -1,14 +1,11 @@
 ---
 layout: page
-title: About
+title: À propos
 ---
 
-Some information about you!
+Webdev à Paris
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself. 
+Je travaille actuellement sur [l'Académie du Goût](https://www.academiedugout.fr)
 
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
