@@ -48,8 +48,8 @@ Puis passons à la structure des fichiers elle-même.
 
 Je travaille habituellement avec la hiérarchie suivante :
 
-```
 
+```
 .
 + _charte.scss
 + _icons.scss
@@ -61,8 +61,8 @@ Je travaille habituellement avec la hiérarchie suivante :
 |   + _module-1.html
 |   + _module-2.html
 |   + _module-n.html
-
 ```
+
 
 ``_charte.scss`` contient le look & feel du site : les différents types de textes (couleurs, tailles), les couleurs, les boutons. Mais attention ce fichier ne contient **aucun** code CSS. Uniquement des mixins (@mixin) et des classes (%ma-classe). Donc si on incluait ce fichier sans utiliser une seule classe ou mixin, aucun code css ne serait généré. Ce fichier devrait faire l'object d'un post ultérieur.
 
