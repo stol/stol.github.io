@@ -86,7 +86,7 @@ height: 18px;
 }
 </style>
 
-<svg class="icon" viewbox="0 0 18 18"><use xlink:href="images/sprites.svg#icon-play"></use></svg>
+<svg class="icon" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-play"></use></svg>
 
 
 
