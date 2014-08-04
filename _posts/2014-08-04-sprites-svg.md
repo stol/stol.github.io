@@ -89,7 +89,7 @@ Et de le faire aller de paire avec du code css
     	/* Personnalisation */
     }
 
-Exemples avec l'icône "icon-pictures :"
+#### Exemples avec l'icône "icon-pictures :"
 
 <style>
 .icon{
@@ -162,15 +162,35 @@ et le code
 	
 	<svg class="icon icon-32 icon-pictures-variante-2" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
 	
-	<svg class="icon icon-64 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg> (mouseover)
-
-
+	<svg class="icon icon-64 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
 
 
 <svg class="icon icon-18 icon-pictures-variante-1" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
 
 <svg class="icon icon-32 icon-pictures-variante-2" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
 
-<svg class="icon icon-64 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg> (mouseover)
+<svg class="icon icon-64 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
 
+
+Notez l'effet "mouseover" sur la 3ème image.
+
+Tout est intégralement fait en CSS. Imaginez si vous y ajoutez des transitions ou bien la personalisation fine des path des graphiques directement en CSS.
+
+Avec un seul symbole, j'ai donc créé 3 images de trois tailles et couleurs différentes, dont une avec un effet hover. Le tout parfaitement affiché y compris sur retina.
+
+#### Problème
+
+Ce code ne marche malheureusement pas sur Internet explorer, ni sur les version mobiles anciennes des navigateurs.
+
+Pour y remédier, il est possible de le faire fonctionner sur les navigateurs supportant le SVG inline (directement inclu dans le HTML), à savoir IE9+, safari mobile & android 2.1. On a alors un bon panel de navigateurs supporté.
+
+Le principe est de faire une requète ajax sur le fichier SVG, d'en extraire le symbole correspondant à l'ID demandé, et d'insérer le code trouvé dans le HTML.
+
+Une toute petite lib se charge de le faire pour vous : [svg4everybody](https://github.com/jonathantneal/svg4everybody)
+
+Incluez-là après avoir lu le readme, et voilà !
+
+Vous avez maintenant un système d'icône spritées facilement utilisable, personnalisable et performant (1 seule req par page).
+
+Et pour ceux qui veulent du support IE7 ou IE8, il doit être possible de faire du fallback sur du PNG. [Mais bon, en france en juillet 2014, IE8 c'est 1.88%](http://gs.statcounter.com/#desktop+mobile+tablet-browser_version_partially_combined-FR-monthly-201407-201407-bar).
 
