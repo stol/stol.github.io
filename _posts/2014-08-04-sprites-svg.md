@@ -75,27 +75,52 @@ Mon fichier d'icônes contient des icônes à la même échelle, sur une grille 
 
 Pour afficher une de ces icônes dans la page, il suffit de l'appeler avec le code
 
-    <svg class="icon" viewbox="0 0 18 18"><use xlink:href="chemin/vers/sprite.svg#icon-play"></use></svg>
+    <svg class="icon-18 icon-id-icon" viewbox="0 0 18 18"><use xlink:href="chemin/vers/sprite.svg#id-icon"></use></svg>
     
-    .icon{
+
+Et de le faire aller de paire avec du code css
+    
+    .icon-18{
         width: 18px;
         height: 18px;
     }
+    
+    .icon-id-icon{
+    	/* Personnalisation */
+    }
 
-
-ce qui donne 
+Exemple avec l'icône "icon-pictures :"
 
 <style>
-.icon{
+.icon-18{
 width: 18px;
 height: 18px;
-display: inline-block;
-vertical-align: middle;
+}
+.icon-32{
+width: 18px;
+height: 18px;
+}
+.icon-pictures-variante-1{
+fill: orange;
+}
+.icon-pictures-variante-2{
+fill: pink;
+}
+.icon-pictures-variante-3{
+background-color: #fff;
+fill: #000;
+}
+.icon-pictures-variante-3:hover{
+background-color: #000;
+fill: #fff;
 }
 </style>
 
-<svg class="icon" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-play"></use></svg>
+<svg class="icon-18 icon-pictures-variante-1" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
 
 
+<svg class="icon-32 icon-pictures-variante-2" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
+
+<svg class="icon-32 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg> (mouseover)
 
 
