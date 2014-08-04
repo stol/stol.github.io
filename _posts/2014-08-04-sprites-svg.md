@@ -182,11 +182,13 @@ Avec un seul symbole, j'ai donc créé 3 images de trois tailles et couleurs dif
 
 Ce code ne marche malheureusement pas sur Internet explorer, ni sur les version mobiles anciennes des navigateurs.
 
+#### Solution
+
 Pour y remédier, il est possible de le faire fonctionner sur les navigateurs supportant le SVG inline (directement inclu dans le HTML), à savoir IE9+, safari mobile & android 2.1. On a alors un bon panel de navigateurs supporté.
 
 Le principe est de faire une requète ajax sur le fichier SVG, d'en extraire le symbole correspondant à l'ID demandé, et d'insérer le code trouvé dans le HTML.
 
-Une toute petite lib se charge de le faire pour vous : [svg4everybody](https://github.com/jonathantneal/svg4everybody)
+[svg4everybody](https://github.com/jonathantneal/svg4everybody) est une toute petite lib se chargeant de le faire pour vous.
 
 Incluez-là après avoir lu le readme, et voilà !
 
