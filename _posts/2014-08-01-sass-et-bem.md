@@ -48,36 +48,31 @@ Puis passons à la structure des fichiers elle-même.
 
 Je travaille habituellement avec la hiérarchie suivante :
 
-
-```
-.
-+ _charte.scss
-+ _icons.scss
-+ _utils.scss
-+ _vars.scss
-+ app.scss
-+ modules/
-|   + _site.scss
-|   + _module-1.html
-|   + _module-2.html
-|   + _module-n.html
-```
+    .
+    + _charte.scss
+    + _icons.scss
+    + _utils.scss
+    + _vars.scss
+    + app.scss
+    + modules/
+    |   + _site.scss
+    |   + _module-1.html
+    |   + _module-2.html
+    |   + _module-n.html
 
 
 ``_charte.scss`` contient le look & feel du site : les différents types de textes (couleurs, tailles), les couleurs, les boutons. Mais attention ce fichier ne contient **aucun** code CSS. Uniquement des mixins (@mixin) et des classes (%ma-classe). Donc si on incluait ce fichier sans utiliser une seule classe ou mixin, aucun code css ne serait généré. Ce fichier devrait faire l'object d'un post ultérieur.
 
 ``_icons.scss`` contient la gestion des icônes du site. J'utilise avec des sprites SVG (post ultérieur :)). Il contient des infos du type :
 
-```
-.mon-icone{
-    width: 32px;
-    height: 32px;
-    fill: red;
-    &:hover{
-      fill: blue;
+    .mon-icone{
+        width: 32px;
+        height: 32px;
+        fill: red;
+        &:hover{
+            fill: blue;
+        }
     }
-}
-```
 
 ``_utils.scss`` contient des mixins, functions, helpers et utils divers et variés. C'est un peu le framework maison. Ce fichier ne génère pas de code en lui-même, mais aide à en générer. Il contient des mixins de media queries, de calculs, etc.
 
@@ -86,15 +81,13 @@ Je travaille habituellement avec la hiérarchie suivante :
 ``app.scss`` est le fichier central du site. Il inclu les modules, et rien qu'eux. Ex : 
 
 
-```sass
-@charset "UTF-8";
+    @charset "UTF-8";
 
-@import "modules/site",
-        "modules/module-1",
-        "modules/module-1",
-        "modules/module-n",
+    @import "modules/site",
+            "modules/module-1",
+            "modules/module-1",
+            "modules/module-n",
 
-```
 
 Enfin, les ``modules/``. Ces fichiers sont intéressants à plus d'un titre. Je reprends ce terme de module par extention de la méthodologie BEM.
 
@@ -117,40 +110,38 @@ Un module **génère** du code CSS, à l'inverse d'une dépendance.
 
 Exemple sans utiliser BEM, histoire de rester simple :
 
-```
-@import "compass/css3/transform",
-        "compass/css3/animation",
-        "../vars",
-        "../charte",
-        "../utils";
-        
+
+    @import "compass/css3/transform",
+            "compass/css3/animation",
+            "../vars",
+            "../charte",
+            "../utils";
 
 $use-css3: false !default; // Est surchargé par la déclaration faite dans _vars.scss
 
-.mon-module{
-
-    border: 1px solid #dadada;
-    opacity: 1;
+    .mon-module{
     
+        border: 1px solid #dadada;
+        opacity: 1;
+        
+        
+        @include clearfix; // défini dans _utils.scss
+        &.transparent{
+            opacity: 0;
+        }
     
-    @include clearfix; // défini dans _utils.scss
-    &.transparent{
-        opacity: 0;
-    }
-
-    @if $use-css3 {
-        @include transition(opacity 0.3s ease-out);
-    }
-
-    .titre{
-        @extend titre-simple; // défini dans _charte.scss
-    }
+        @if $use-css3 {
+            @include transition(opacity 0.3s ease-out);
+        }
     
-    .texte{
-        @extend texte-moyen; // définit dans _charte.scss
+        .titre{
+            @extend titre-simple; // défini dans _charte.scss
+        }
+        
+        .texte{
+            @extend texte-moyen; // définit dans _charte.scss
+        }
     }
-}
-```
 
 Pour utiliser le module sur le site, il suffit de l'importer dans ``app.scss``.
 
@@ -162,12 +153,9 @@ Mais ça permet aussi de pouvoir facilement exporter ce module dans un autre fic
 
 Ex : nous pourrions avoir besoin de d'afficher notre bloc "mon-module" sur un site tierce, dans une iframe. Il serait possible d'appeler la feuille de style principale, mais à quel prix ? Ici, il est possible de faire :
 
-```
-// export-mon-module.scss
-
-@import "modules/_mon-module.scss";
-
-```
+    // export-mon-module.scss
+    
+    @import "modules/_mon-module.scss";
 
 Le code généré ne comportera **que** le code CSS correspondant au module. Il ne comportera ni les règles globales, ni le grid systeme, ni plein de trucs inutiles.
 
