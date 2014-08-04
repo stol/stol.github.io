@@ -97,8 +97,12 @@ width: 18px;
 height: 18px;
 }
 .icon-32{
-width: 18px;
-height: 18px;
+width: 32px;
+height: 32px;
+}
+.icon-64{
+width: 64px;
+height: 64px;
 }
 .icon-pictures-variante-1{
 fill: orange;
@@ -118,9 +122,8 @@ fill: #fff;
 
 <svg class="icon-18 icon-pictures-variante-1" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
 
-
 <svg class="icon-32 icon-pictures-variante-2" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
 
-<svg class="icon-32 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg> (mouseover)
+<svg class="icon-64 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg> (mouseover)
 
 
