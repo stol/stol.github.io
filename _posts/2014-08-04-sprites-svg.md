@@ -89,9 +89,13 @@ Et de le faire aller de paire avec du code css
     	/* Personnalisation */
     }
 
-Exemple avec l'icône "icon-pictures :"
+Exemples avec l'icône "icon-pictures :"
 
 <style>
+.icon{
+vertical-align: middle;
+display: inline-block;
+}
 .icon-18{
 width: 18px;
 height: 18px;
@@ -120,10 +124,53 @@ fill: #fff;
 }
 </style>
 
-<svg class="icon-18 icon-pictures-variante-1" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
 
-<svg class="icon-32 icon-pictures-variante-2" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
+	.icon{
+		vertical-align: middle;
+		display: inline-block;
+	}
+	.icon-18{
+		width: 18px;
+		height: 18px;
+	}
+	.icon-32{
+		width: 32px;
+		height: 32px;
+	}
+	.icon-64{
+		width: 64px;
+		height: 64px;
+	}
+	.icon-pictures-variante-1{
+		fill: orange;
+	}
+	.icon-pictures-variante-2{
+		fill: pink;
+	}
+	.icon-pictures-variante-3{
+		background-color: #fff;
+		fill: #000;
+	}
+	.icon-pictures-variante-3:hover{
+		background-color: #000;
+		fill: #fff;
+	}
 
-<svg class="icon-64 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg> (mouseover)
+et le code 
+
+	<svg class="icon icon-18 icon-pictures-variante-1" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
+	
+	<svg class="icon icon-32 icon-pictures-variante-2" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
+	
+	<svg class="icon icon-64 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg> (mouseover)
+
+
+
+
+<svg class="icon icon-18 icon-pictures-variante-1" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
+
+<svg class="icon icon-32 icon-pictures-variante-2" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg>
+
+<svg class="icon icon-64 icon-pictures-variante-3" viewbox="0 0 18 18"><use xlink:href="/images/sprites.svg#icon-pictures"></use></svg> (mouseover)
 
 
