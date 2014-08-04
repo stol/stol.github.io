@@ -80,7 +80,6 @@ Je travaille habituellement avec la hiérarchie suivante :
 
 ``app.scss`` est le fichier central du site. Il inclu les modules, et rien qu'eux. Ex : 
 
-
     @charset "UTF-8";
 
     @import "modules/site",
@@ -88,17 +87,12 @@ Je travaille habituellement avec la hiérarchie suivante :
             "modules/module-1",
             "modules/module-n",
 
-
-Enfin, les ``modules/``. Ces fichiers sont intéressants à plus d'un titre. Je reprends ce terme de module par extention de la méthodologie BEM.
-
-Chaque fichier contient soit :
+Enfin, les ``modules/``. Ces fichiers sont intéressants à plus d'un titre. Chaque fichier contient soit :
 
 * Les règles CSS d'un composant front complexe. Ex : la barre de menu
 * Les règles CSS d'un type de données. Ex : sur un site de cuisine, tout ce qui concerne l'affichage des recettes
 
 Ma règle est généralement de créer un fichier par composant que lorsque ce composant devient trop complexe.
-
-Les modules sont des modules BEM, mais ça fera l'objet d'un post ulterieur.
 
 #### Création d'un module
 
