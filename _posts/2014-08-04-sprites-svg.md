@@ -80,7 +80,7 @@ Pour afficher une de ces icônes dans la page, il suffit de l'appeler avec le co
 ce qui donne 
 
 <style>
-icon{
+.icon{
 width: 18px;
 height: 18px;
 }
