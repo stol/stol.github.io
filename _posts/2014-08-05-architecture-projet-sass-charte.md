@@ -8,15 +8,15 @@ title: Des textes chartés dans un projet Sass
 
 Ce post est le 2ème d'une série concernant l'organisation d'un projet Sass/Compass. Ce post se concentre sur le fichier ``_charte.scss``, dont le rôle est de définir les styles des textes, et par extension des boutons, en responsive.
 
-- 1er article : [Organisation un projet Sass](/architecture-projet-sass)
+- 1er article : [Organisation d'un projet Sass](/architecture-projet-sass)
 
 
 ### Organisation du code
 
 
-Les styles doivent être groupés par famille se "dégradant" de la même façon (= ayant la même apparence en mobile) : les règles sont groupées par font, graisseur, casse et éventuellement couleur.
+Les styles doivent être groupés par famille se "dégradant" de la même façon (= ayant la même apparence en mobile) : les règles sont groupées par *font*, graisseur, casse et éventuellement couleur.
 
-Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en desktop, 2 niveaux en tablette et 1 seul en mobile :
+Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en desktop, 2 niveaux en tablette et 1 en mobile :
 
 {% highlight scss %}
 
@@ -79,7 +79,7 @@ Une fois ces classes définies, nous avons à  notre disposition 4 classes :
 - ``%roboto-condensed-uppercase-black__3``
 
 
-Elle sont utilisables dans dans les modules :
+Elle sont utilisables dans les modules :
 
 {% highlight scss %}
 // Le code CSS d'un bloc "article"
@@ -113,17 +113,16 @@ Il faut y mettre tout les style de textes utilisés, et leur versions responsive
 }
 
 %roboto-condensed-uppercase-grey{
-    // du code simimaire, avec gestion des tailles par breakpoint
+    // du code similaire, avec gestion des tailles par breakpoint
 }
 
-
 %arial-uppercase-orange{
-    // du code simimaire, avec gestion des tailles par breakpoint
+    // du code similaire, avec gestion des tailles par breakpoint
 }
 
 %arial-normal{
-    // du code simimaire, avec gestion des tailles par breakpoint
-    // ici, les textes "normaux"n genre les articles
+    // du code similaire, avec gestion des tailles par breakpoint
+    // ici, les textes "normaux" genre les articles
 }
 {% endhighlight %}
 
@@ -132,7 +131,7 @@ Il faut y mettre les styles "globaux" :
 
 
 {% highlight scss %}
-// Liens dans le corp des textes
+// Liens dans le corps des textes
 %link-in-text{
     color: orange;
     text-decoration: underline;
@@ -214,6 +213,6 @@ Quoi qu'il en soit, en utilisant ces méthodes, on a une bonne visibilité sur l
 
 Ce fichier est une dépendance pure, ne générant pas de code CSS.
 
-Il suffit d'inclure ce fichier dans un module tièrce pour avoir accès à tout les styles définis.
+Il suffit d'inclure ce fichier dans un module tierce pour avoir accès à tout les styles définis.
 
 
