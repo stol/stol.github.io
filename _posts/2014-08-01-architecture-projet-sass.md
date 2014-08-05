@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Organisation un projet Sass
+title: Organisation d'un projet Sass
 ---
 
 ### Préambule
