@@ -18,6 +18,9 @@ Les styles doivent être groupés par famille se "dégradant" de la même façon
 
 Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en desktop, 2 niveaux en tablette et 1 seul en mobile :
 
+{% highlight css %}
+
+
     %roboto-condensed-bold-uppercase-black{
         // C'est la base de ce style. Aura toujours ce style en mobile.
         font-family: 'Roboto Condensed', sans-serif;
@@ -63,6 +66,8 @@ Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en de
             }
         }
     }
+    
+{% endhighlight %}
 
 A noter que l'encapsulation n'a pas de rôle en soi. C'est juste une façon plus pratique d'organiser le code, de le "namespacer" visuellement.
 
