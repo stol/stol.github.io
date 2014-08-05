@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Gérer la charte graphique d'un projet Sass/Compass
+title: Des textes chartés dans un projet Sass
 ---
 
 ### Introduction
