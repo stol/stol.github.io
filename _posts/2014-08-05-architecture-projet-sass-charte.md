@@ -214,6 +214,6 @@ Quoi qu'il en soit, en utilisant ces méthodes, on a une bonne visibilité sur l
 
 Ce fichier est une dépendance pure, ne générant pas de code CSS.
 
-Il suffit d'include ce fichier dans un module tièrce pour avoir accès à tout les styles définis.
+Il suffit d'inclure ce fichier dans un module tièrce pour avoir accès à tout les styles définis.
 
 
