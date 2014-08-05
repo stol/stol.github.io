@@ -33,7 +33,9 @@ Pour ne plus jamais reproduire cette façon de fonctionner, 3 choses m'ont permi
 
 Installer ``compass`` et le plugin ``compass-import-once`` :
 
-```$ gem install compass compass-import-once```
+{% highlight bash %}
+$ gem install compass compass-import-once
+{% endhighlight %}
     
 
 [Compass](http://compass-style.org/) est un framework basé sur Sass, offrant beaucoup de mixins et d'options de configuration.
