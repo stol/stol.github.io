@@ -200,3 +200,16 @@ Utilisables ailleurs comme ceci (j'utise des mixins car Sass ne permet pas de fa
     .bnt-big-forced{
         @include btn-big;
     }
+
+
+### Conclusion
+
+Ce fichier _charte.scss pourrait finalement s'appeler _texts.scss :-)
+
+Quoi qu'il en soit, en utilisant ces methodes, on a une bonne visibilité sur les styles de textes utilisés dans le site, quelques soit la taille des devices.
+
+Ce fichier est une dépendance pure, ne générant pas de code CSS.
+
+Il suffit d'include ce fichier dans un module tièrce pour avoir accès à tout les styles définis.
+
+
