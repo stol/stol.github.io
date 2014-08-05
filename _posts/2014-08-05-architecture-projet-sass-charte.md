@@ -73,10 +73,10 @@ A noter que l'encapsulation n'a pas de rôle en soi. C'est juste une façon plus
 
 Une fois ces classes définies, nous avons à  notre disposition 4 classes : 
 
-- %roboto-condensed-uppercase-black;
-- %roboto-condensed-uppercase-black__1;
-- %roboto-condensed-uppercase-black__2;
-- %roboto-condensed-uppercase-black__3;
+- ``%roboto-condensed-uppercase-black``
+- ``%roboto-condensed-uppercase-black__1``
+- ``%roboto-condensed-uppercase-black__2``
+- ``%roboto-condensed-uppercase-black__3``
 
 
 Elle sont utilisables dans dans les modules :
@@ -109,23 +109,21 @@ Il faut y mettre tout les style de textes utilisés, et leur versions responsive
 
 {% highlight scss %}
 %roboto-condensed-bold-uppercase-black{
-    // [...]
+    // cf : le code précédent
 }
 
 %roboto-condensed-uppercase-grey{
-    // [...]
+    // du code simimaire, avec gestion des tailles par breakpoint
 }
 
-%arial-uppercase-orange{
-    // [...]
-}
 
 %arial-uppercase-orange{
-    // [...]
+    // du code simimaire, avec gestion des tailles par breakpoint
 }
 
 %arial-normal{
-    // [...]
+    // du code simimaire, avec gestion des tailles par breakpoint
+    // ici, les textes "normaux"n genre les articles
 }
 {% endhighlight %}
 
@@ -165,15 +163,19 @@ Il faut y mettre les styles "globaux" :
 Il faut y mettre les boutons :
 
 {% highlight scss %}
+// Propriétés communes aux boutons (si pertinent)
 @mixin btn{
-    // border, background, etc
+    // [...]
 }
 
+// Code d'un petit bouton
 @mixin btn-small{
-    // Code d'un petit bouton
+    // [...]
 }
+
+// Code d'un gros bouton
 @mixin btn-big{
-    // Code d'un gros bouton
+    // [...]
 }
 {% endhighlight %}
 
@@ -181,6 +183,7 @@ Utilisables ailleurs comme ceci (j'utilise des ``@mixins`` car Sass ne permet pa
 
 
 {% highlight scss %}
+// Le petit bouton est toujours petit
 .bnt-small{
     @include btn;
     @include btn-small;
