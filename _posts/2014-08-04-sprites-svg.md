@@ -1,6 +1,6 @@
 ---
 layout: post
-title: La technique des sprites SVG
+title: La technique des sprites SVG (article en cours de rédaction)
 ---
 
 ### Préambule
