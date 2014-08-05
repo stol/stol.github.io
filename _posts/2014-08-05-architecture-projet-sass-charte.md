@@ -5,6 +5,8 @@ title: Des textes chartés dans un projet Sass
 
 ### Introduction
 
+1er article : [Organisation un projet Sass](/architecture-projet-sass)
+
 Ce post est le 2ème d'une série concernant l'organisation d'un projet Sass/Compass pour un site web moderne. Ce post se concentre sur le fichier ``_charte.scss``.
 
 Ce fichier se concentre sur les **textes** et par extension, les boutons.
@@ -144,7 +146,7 @@ Il faut y mettre les boutons :
     }
 
 
-Utilisables ailleurs comme ceci (j'utise des mixins car Sass ne permet pas de faire des @extend dans des media-queries):
+Utilisables ailleurs comme ceci (j'utilise des ``@mixins`` car Sass ne permet pas de faire des ``@extend`` dans des media-queries):
 
 
     .bnt-small{
@@ -169,9 +171,9 @@ Utilisables ailleurs comme ceci (j'utise des mixins car Sass ne permet pas de fa
 
 ### Conclusion
 
-Ce fichier _charte.scss pourrait finalement s'appeler _texts.scss :-)
+Ce fichier ``_charte.scss`` pourrait finalement s'appeler ``_texts.scss`` :-)
 
-Quoi qu'il en soit, en utilisant ces methodes, on a une bonne visibilité sur les styles de textes utilisés dans le site, quelques soit la taille des devices.
+Quoi qu'il en soit, en utilisant ces méthodes, on a une bonne visibilité sur les styles de textes utilisés dans le site, quelques soient les tailles des devices.
 
 Ce fichier est une dépendance pure, ne générant pas de code CSS.
 
