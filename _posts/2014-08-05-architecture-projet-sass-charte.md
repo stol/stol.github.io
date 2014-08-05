@@ -6,11 +6,9 @@ title: Des textes chartés dans un projet Sass
 ### Introduction
 
 
-Ce post est le 2ème d'une série concernant l'organisation d'un projet Sass/Compass pour un site web moderne. Ce post se concentre sur le fichier ``_charte.scss``.
+Ce post est le 2ème d'une série concernant l'organisation d'un projet Sass/Compass. Ce post se concentre sur le fichier ``_charte.scss``, dont le rôle est de définir les styles des textes, et par extension des boutons, en responsive.
 
 - 1er article : [Organisation un projet Sass](/architecture-projet-sass)
-
-Ce fichier se concentre sur les **textes** et par extension, les boutons.
 
 ### Organisation du code
 
