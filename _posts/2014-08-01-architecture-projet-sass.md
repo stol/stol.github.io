@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Comment organiser le projet Sass/Compass d'un site web moderne ?
+title: Organisation un projet Sass
 ---
 
 ### Préambule
