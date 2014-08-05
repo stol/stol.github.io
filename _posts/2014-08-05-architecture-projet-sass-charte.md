@@ -159,51 +159,6 @@ Il faut y mettre les styles "globaux" :
 }
 {% endhighlight %}
 
-Il faut y mettre les boutons :
-
-{% highlight scss %}
-// Propriétés communes aux boutons (si pertinent)
-@mixin btn{
-    // [...]
-}
-
-// Code d'un petit bouton
-@mixin btn-small{
-    // [...]
-}
-
-// Code d'un gros bouton
-@mixin btn-big{
-    // [...]
-}
-{% endhighlight %}
-
-Utilisables ailleurs comme ceci (j'utilise des ``@mixins`` car Sass ne permet pas de faire des ``@extend`` dans des media-queries):
-
-
-{% highlight scss %}
-// Le petit bouton est toujours petit
-.bnt-small{
-    @include btn;
-    @include btn-small;
-}
-
-// Le gros bouton devient petit en mobile
-.bnt-big{
-    @include btn;
-    @include btn-small;
-    @include media-query(desktop){ (
-        @include btn-big;
-    }
-}
-
-// Le gros bouton reste gros en mobile
-.bnt-big-forced{
-    @include btn-big;
-}
-{% endhighlight %}
-
-
 ### Conclusion
 
 
