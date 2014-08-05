@@ -10,7 +10,9 @@ Ce post est le 2ème d'une série concernant l'organisation d'un projet Sass/Com
 
 - 1er article : [Organisation un projet Sass](/architecture-projet-sass)
 
+
 ### Organisation du code
+
 
 Les styles doivent être groupés par famille se "dégradant" de la même façon (= ayant la même apparence en mobile) : les règles sont groupées par font, graisseur, casse et éventuellement couleur.
 
@@ -96,6 +98,7 @@ Cette organisation est à répéter autant de fois qu'il y a de polices/tailles/
 
 ### Que mettre dans _charte.scss ?
 
+
 Il faut y mettre tout les style de textes utilisés, et leur versions responsives. Exemple : 
 
     %roboto-condensed-bold-uppercase-black{...}
@@ -109,7 +112,7 @@ Il faut y mettre tout les style de textes utilisés, et leur versions responsive
     %arial-normal{...}
 
 
-Il faut y mettre les styles "globaux"
+Il faut y mettre les styles "globaux" :
 
 
     %link-in-text{
@@ -174,6 +177,7 @@ Utilisables ailleurs comme ceci (j'utilise des ``@mixins`` car Sass ne permet pa
 
 
 ### Conclusion
+
 
 Ce fichier ``_charte.scss`` pourrait finalement s'appeler ``_texts.scss`` :-)
 
