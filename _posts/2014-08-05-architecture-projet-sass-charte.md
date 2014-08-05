@@ -5,9 +5,10 @@ title: Des textes chartés dans un projet Sass
 
 ### Introduction
 
-1er article : [Organisation un projet Sass](/architecture-projet-sass)
 
 Ce post est le 2ème d'une série concernant l'organisation d'un projet Sass/Compass pour un site web moderne. Ce post se concentre sur le fichier ``_charte.scss``.
+
+- 1er article : [Organisation un projet Sass](/architecture-projet-sass)
 
 Ce fichier se concentre sur les **textes** et par extension, les boutons.
 
