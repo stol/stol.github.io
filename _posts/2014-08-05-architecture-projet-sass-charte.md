@@ -73,13 +73,11 @@ A noter que l'encapsulation n'a pas de rôle en soi. C'est juste une façon plus
 
 Une fois ces classes définies, nous avons à  notre disposition 4 classes : 
 
-{% highlight scss %}
-%roboto-condensed-uppercase-black;
-%roboto-condensed-uppercase-black__1;
-%roboto-condensed-uppercase-black__2;
-%roboto-condensed-uppercase-black__3;
-{% endhighlight %}
-    
+- %roboto-condensed-uppercase-black;
+- %roboto-condensed-uppercase-black__1;
+- %roboto-condensed-uppercase-black__2;
+- %roboto-condensed-uppercase-black__3;
+
 
 Elle sont utilisables dans dans les modules :
 
@@ -110,15 +108,25 @@ Cette organisation est à répéter autant de fois qu'il y a de polices/tailles/
 Il faut y mettre tout les style de textes utilisés, et leur versions responsives. Exemple : 
 
 {% highlight scss %}
-%roboto-condensed-bold-uppercase-black{...}
+%roboto-condensed-bold-uppercase-black{
+    // [...]
+}
 
-%roboto-condensed-uppercase-grey{...}
+%roboto-condensed-uppercase-grey{
+    // [...]
+}
 
-%arial-uppercase-orange{...}
+%arial-uppercase-orange{
+    // [...]
+}
 
-%arial-uppercase-orange{...}
+%arial-uppercase-orange{
+    // [...]
+}
 
-%arial-normal{...}
+%arial-normal{
+    // [...]
+}
 {% endhighlight %}
 
 
@@ -126,6 +134,7 @@ Il faut y mettre les styles "globaux" :
 
 
 {% highlight scss %}
+// Liens dans le corp des textes
 %link-in-text{
     color: orange;
     text-decoration: underline;
@@ -134,6 +143,7 @@ Il faut y mettre les styles "globaux" :
     }
 }
 
+// Liens dans les accroches des articles
 %link-in-headline{
     color: red;
     font-weight: 400;
@@ -144,6 +154,7 @@ Il faut y mettre les styles "globaux" :
     }
 }
 
+// Liens de type "lire la suite"
 %link-read-more{
     color: orange;
     text-decoration: none;
