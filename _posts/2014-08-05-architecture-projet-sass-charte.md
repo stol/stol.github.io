@@ -50,7 +50,7 @@ J'utilise ici la fonctionnalité "BEM" (@at-root) de Sass pour grouper le code d
 
 Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en desktop, 2 niveaux en tablette et 1 seul en mobile :
 
-    %roboto-condensed-uppercase-black{
+    %roboto-condensed-bold-uppercase-black{
         // C'est la base de ce style. Aura toujours ce style en mobile.
         font-family: 'Roboto Condensed', sans-serif;
         font-weight: 700;
@@ -60,7 +60,7 @@ Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en de
         
         // Niveau grand
         &__1{
-            @extend %roboto-condensed-uppercase-black;
+            @extend %roboto-condensed-bold-uppercase-black;
             @include media-query(tablette){
                 font-size: 30px;
                 line-height: 36px;
@@ -72,7 +72,7 @@ Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en de
         }
         // Niveau moyen
         &__2{
-            @extend %roboto-condensed-uppercase-black;
+            @extend %roboto-condensed-bold-uppercase-black;
             @include media-query(tablette){
                 font-size: 24px;
                 line-height: 30px;
@@ -84,7 +84,7 @@ Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en de
         }
         // Niveau le plus petit
         &__3{
-            @extend %roboto-condensed-uppercase-black;
+            @extend %roboto-condensed-bold-uppercase-black;
             @include media-query(tablette){
                 font-size: 20px;
                 line-height: 26px;
@@ -120,13 +120,83 @@ Et nous pourrons les utiliser dans un module tièrce :
     }
     
 
+Cette organisation est à répéter autant de fois qu'il y a de polices/tailles/casses différentes.
 
 
+### Que mettre dans _charte.scss ?
 
-Le plus simple à gérer, ce sont les textes "normaux". Ce sont les textes principaux des pages. Il ne devrait pas y en avoir plus de 2 dans tout le site.
+Il faut y mettre tout les style de textes utilisés, et leur versions responsives. Exemple : 
+
+    %roboto-condensed-bold-uppercase-black{...}
+    
+    %roboto-condensed-uppercase-grey{...}
+    
+    %arial-uppercase-orange{...}
+    
+    %arial-uppercase-orange{...}
+
+    %arial-normal{...}
 
 
+Il faut y mettre les styles "globaux"
 
 
+    %link-in-text{
+        color: orange;
+        text-decoration: underline;
+        &:hover{
+            color: brown;
+        }
+    }
+
+    %link-in-headline{
+        color: red;
+        font-weight: 400;
+        text-decoration: none;
+        
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    %link-read-more{
+        color: orange;
+        text-decoration: none;
+        border-bottom: 1px dotted orange;
+    }
+
+Il faut y mettre les boutons :
+
+    @mixin btn{
+        // border, background, etc
+    }
+    
+    @mixin btn-small{
+        // Code d'un petit bouton
+    }
+    @mixin btn-big{
+        // Code d'un gros bouton
+    }
 
 
+Utilisables ailleurs comme ceci (j'utise des mixins car Sass ne permet pas de faire des @extend dans des media-queries):
+
+
+    .bnt-small{
+        @include btn;
+        @include btn-small;
+    }
+    
+    // Le gros bouton devient petit en mobile
+    .bnt-big{
+        @include btn;
+        @include btn-small;
+        @include media-query(desktop){ (
+            @include btn-big;
+        }
+    }
+    
+    // Le gros bouton reste gros en mobile
+    .bnt-big-forced{
+        @include btn-big;
+    }
