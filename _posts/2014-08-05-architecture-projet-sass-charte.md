@@ -21,51 +21,51 @@ Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en de
 {% highlight scss %}
 
 
-    %roboto-condensed-bold-uppercase-black{
-        // C'est la base de ce style. Aura toujours ce style en mobile.
-        font-family: 'Roboto Condensed', sans-serif;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 16px;
-        line-height: 20px;
-        
-        // Niveau grand
-        &__1{
-            @extend %roboto-condensed-bold-uppercase-black;
-            @include media-query(tablette){
-                font-size: 30px;
-                line-height: 36px;
-            }
-            @include media-query(desktop){
-                font-size: 40px;
-                line-height: 50px;
-            }
+%roboto-condensed-bold-uppercase-black{
+    // C'est la base de ce style. Aura toujours ce style en mobile.
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 20px;
+    
+    // Niveau grand
+    &__1{
+        @extend %roboto-condensed-bold-uppercase-black;
+        @include media-query(tablette){
+            font-size: 30px;
+            line-height: 36px;
         }
-        // Niveau moyen
-        &__2{
-            @extend %roboto-condensed-bold-uppercase-black;
-            @include media-query(tablette){
-                font-size: 24px;
-                line-height: 30px;
-            }
-            @include media-query(desktop){
-                font-size: 30px;
-                line-height: 36px;
-            }
-        }
-        // Niveau le plus petit
-        &__3{
-            @extend %roboto-condensed-bold-uppercase-black;
-            @include media-query(tablette){
-                font-size: 20px;
-                line-height: 26px;
-            }
-            @include media-query(desktop){
-                font-size: 24px;
-                line-height: 30px;
-            }
+        @include media-query(desktop){
+            font-size: 40px;
+            line-height: 50px;
         }
     }
+    // Niveau moyen
+    &__2{
+        @extend %roboto-condensed-bold-uppercase-black;
+        @include media-query(tablette){
+            font-size: 24px;
+            line-height: 30px;
+        }
+        @include media-query(desktop){
+            font-size: 30px;
+            line-height: 36px;
+        }
+    }
+    // Niveau le plus petit
+    &__3{
+        @extend %roboto-condensed-bold-uppercase-black;
+        @include media-query(tablette){
+            font-size: 20px;
+            line-height: 26px;
+        }
+        @include media-query(desktop){
+            font-size: 24px;
+            line-height: 30px;
+        }
+    }
+}
     
 {% endhighlight %}
 
@@ -74,32 +74,32 @@ A noter que l'encapsulation n'a pas de rôle en soi. C'est juste une façon plus
 Une fois ces classes définies, nous avons à  notre disposition 4 classes : 
 
 {% highlight scss %}
-    %roboto-condensed-uppercase-black;
-    %roboto-condensed-uppercase-black__1;
-    %roboto-condensed-uppercase-black__2;
-    %roboto-condensed-uppercase-black__3;
+%roboto-condensed-uppercase-black;
+%roboto-condensed-uppercase-black__1;
+%roboto-condensed-uppercase-black__2;
+%roboto-condensed-uppercase-black__3;
 {% endhighlight %}
     
 
 Elle sont utilisables dans dans les modules :
 
-    
-    // Le code CSS d'un bloc "article"
-    .module-bem-article{
-        &__title{
-            @extend %roboto-condensed-uppercase-black__1;
-        }
-        // [...]
+{% highlight scss %}
+// Le code CSS d'un bloc "article"
+.module-bem-article{
+    &__title{
+        @extend %roboto-condensed-uppercase-black__1;
     }
-    
-    // Le code CSS d'un bloc "utilisateur"
-    .module-bem-user{
-        &__name{
-            @extend %roboto-condensed-uppercase-black__2;
-        }
-        // [...]
+    // [...]
+}
+
+// Le code CSS d'un bloc "utilisateur"
+.module-bem-user{
+    &__name{
+        @extend %roboto-condensed-uppercase-black__2;
     }
-    
+    // [...]
+}
+{% endhighlight %}
 
 Cette organisation est à répéter autant de fois qu'il y a de polices/tailles/casses différentes.
 
@@ -110,15 +110,15 @@ Cette organisation est à répéter autant de fois qu'il y a de polices/tailles/
 Il faut y mettre tout les style de textes utilisés, et leur versions responsives. Exemple : 
 
 {% highlight scss %}
-    %roboto-condensed-bold-uppercase-black{...}
-    
-    %roboto-condensed-uppercase-grey{...}
-    
-    %arial-uppercase-orange{...}
-    
-    %arial-uppercase-orange{...}
+%roboto-condensed-bold-uppercase-black{...}
 
-    %arial-normal{...}
+%roboto-condensed-uppercase-grey{...}
+
+%arial-uppercase-orange{...}
+
+%arial-uppercase-orange{...}
+
+%arial-normal{...}
 {% endhighlight %}
 
 
@@ -126,68 +126,68 @@ Il faut y mettre les styles "globaux" :
 
 
 {% highlight scss %}
-    %link-in-text{
-        color: orange;
+%link-in-text{
+    color: orange;
+    text-decoration: underline;
+    &:hover{
+        color: brown;
+    }
+}
+
+%link-in-headline{
+    color: red;
+    font-weight: 400;
+    text-decoration: none;
+    
+    &:hover{
         text-decoration: underline;
-        &:hover{
-            color: brown;
-        }
     }
+}
 
-    %link-in-headline{
-        color: red;
-        font-weight: 400;
-        text-decoration: none;
-        
-        &:hover{
-            text-decoration: underline;
-        }
-    }
-
-    %link-read-more{
-        color: orange;
-        text-decoration: none;
-        border-bottom: 1px dotted orange;
-    }
+%link-read-more{
+    color: orange;
+    text-decoration: none;
+    border-bottom: 1px dotted orange;
+}
 {% endhighlight %}
 
 Il faut y mettre les boutons :
 
 {% highlight scss %}
-    @mixin btn{
-        // border, background, etc
-    }
-    
-    @mixin btn-small{
-        // Code d'un petit bouton
-    }
-    @mixin btn-big{
-        // Code d'un gros bouton
-    }
+@mixin btn{
+    // border, background, etc
+}
+
+@mixin btn-small{
+    // Code d'un petit bouton
+}
+@mixin btn-big{
+    // Code d'un gros bouton
+}
 {% endhighlight %}
 
 Utilisables ailleurs comme ceci (j'utilise des ``@mixins`` car Sass ne permet pas de faire des ``@extend`` dans des media-queries):
 
 
 {% highlight scss %}
-    .bnt-small{
-        @include btn;
-        @include btn-small;
-    }
-    
-    // Le gros bouton devient petit en mobile
-    .bnt-big{
-        @include btn;
-        @include btn-small;
-        @include media-query(desktop){ (
-            @include btn-big;
-        }
-    }
-    
-    // Le gros bouton reste gros en mobile
-    .bnt-big-forced{
+.bnt-small{
+    @include btn;
+    @include btn-small;
+}
+
+// Le gros bouton devient petit en mobile
+.bnt-big{
+    @include btn;
+    @include btn-small;
+    @include media-query(desktop){ (
         @include btn-big;
     }
+}
+
+// Le gros bouton reste gros en mobile
+.bnt-big-forced{
+    @include btn-big;
+}
 {% endhighlight %}
 
 
