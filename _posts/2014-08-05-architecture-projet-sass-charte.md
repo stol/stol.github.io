@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Gérer la charte graphique d'un projet Sass/Compass : le fichier _charte.scss
+title: Gérer la charte graphique d'un projet Sass/Compass
 ---
 
 ### Introduction
