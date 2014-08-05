@@ -18,7 +18,7 @@ Les styles doivent être groupés par famille se "dégradant" de la même façon
 
 Exemple avec des titres en "Roboto Condensed" en majuscule, avec 3 niveaux en desktop, 2 niveaux en tablette et 1 seul en mobile :
 
-{% highlight css %}
+{% highlight scss linenos %}
 
 
     %roboto-condensed-bold-uppercase-black{
