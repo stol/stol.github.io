@@ -71,7 +71,7 @@ Une fois ces classes définies, nous avons à  notre disposition 4 classes :
     %roboto-condensed-uppercase-black__2
     %roboto-condensed-uppercase-black__3
 
-Et nous pourrons les utiliser dans un module tièrce : 
+Elle sont utilisables dans dans les modules :
 
     .module-bem-article{
         &__title{
