@@ -73,16 +73,21 @@ Une fois ces classes définies, nous avons à  notre disposition 4 classes :
 
 Elle sont utilisables dans dans les modules :
 
+    
+    // Le code CSS d'un bloc "article"
     .module-bem-article{
         &__title{
             @extend %roboto-condensed-uppercase-black__1;
         }
+        // [...]
     }
     
+    // Le code CSS d'un bloc "utilisateur"
     .module-bem-user{
         &__name{
             @extend %roboto-condensed-uppercase-black__2;
         }
+        // [...]
     }
     
 
