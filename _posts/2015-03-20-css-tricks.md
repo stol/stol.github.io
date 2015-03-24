@@ -18,8 +18,20 @@ Les propriétés `top: 50%` et `left: 50%` positionnent le bouton à 50% des hau
 Les propriétés `transform: translateY(-50%)` et `transform: translateX(-50%)` déplace l'élément à -50% de ses propres hauteurs et largeurs.
 
 ```css
+.container{
+  height: 300px;
+  position: relative;
+}
+
 .vertical-centered{
   position: absolute;
-  top: 50%; 
+  top: 50%;
   transform: translateY(-50%);
 }
+
+.horizontal-centered{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+```
