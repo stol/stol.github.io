@@ -35,3 +35,9 @@ Les propriétés `transform: translateY(-50%)` et `transform: translateX(-50%)` 
   transform: translateX(-50%);
 }
 ```
+
+### Ratios
+
+### box-sizing
+
+### checkbox trick
